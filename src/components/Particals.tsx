@@ -28,7 +28,7 @@ const Particals = () => {
         interactivity: {
           events: {
             onClick: {
-              enable: true,
+              enable: true,     
               mode: "push",
             },
             onHover: {
