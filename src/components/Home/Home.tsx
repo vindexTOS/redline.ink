@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import animationData from "../../assets/animations/Robot.json";
 import Lottie from "react-lottie";
 import { motion as m } from "framer-motion";
-
+import Wave from "./Wave";
 function Home() {
   const defaultOptions = {
     loop: true,
@@ -106,7 +106,8 @@ function Home() {
           variants={itemVariants}
           className="w-[50%] flex flex-col items-center justify-around py-40 h-[100%]"
         >
-          <p className="text-gray-400 font-bold font-mono text-[2rem] text-center ">
+          <Wave />
+          <p className="text-red-600 font-bold font-mono text-[2rem] text-center ">
             „ Choosing technologies isn't about personal preference; it's about
             empowering our clients with the best solutions tailored to their
             needs. „
