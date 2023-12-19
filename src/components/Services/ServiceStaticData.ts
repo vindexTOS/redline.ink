@@ -1,15 +1,41 @@
-export const Stack = {
-  frontEnd: [
-    { title: "Angular", icon: "" },
-    { title: "React", icon: "" },
-    { title: "React Native", icon: "" },
-    { title: "NextJs", icon: "" },
-    { title: "Vue", icon: "" },
-  ],
-  backEnd: [
-    { title: "Nodejs", icon: "" },
-    { title: "Express", icon: "" },
-    { title: "NestJs", icon: "" },
-    { title: "C# .Net", icon: "" },
-  ],
-};
+import ServerIcon from "../../assets/icons/server.png";
+import PhoneIcon from "../../assets/icons/smartphone.png";
+import WebIcon from "../../assets/icons/web.png";
+
+export const servicse = [
+  {
+    title: "ვებ აპლიკაცია",
+    description:
+      "ნებიესმიერი სირთულის საიტის, დამზადებული თქვენზე მორგებული ტექნოლოგით, და განთავსება ინტერნეტ სივრცეში",
+    icon: WebIcon,
+    link: "web-app",
+    metaData: {
+      priceRange: ["1000", "15.000"],
+      titleOne: [
+        "თქვენს მოთხოვნებზე მორგებული ვებ საიტი",
+        "ჩვენ შეგვიძლია დაგიმზადოთ ნებისმიერი სახის ვებსაიტი, ეს იქნება ტიპიური e-com ვებ საიტი WordPress-ზე, სასწავლო პლატფორმა,ონლაინ კაზინო თუ ახალი ქართული სოციალური მედია ვებსაიტი, ლიმიტი მხოლოდ თქვენი წარმოსახვა. კლიენტის მხარე, სერვერი და ბაზებთან მუსაობა, დაჰოსტვა თქვენთვის სასურველ პლატფორმაზე",
+      ],
+      titleTwo: [
+        "არსებული ვებსაიტის რედიზაინი, მოდერნიზირება და შეკეთება",
+        "განგიახლებთ ვებსაიტს თანამედროვე სტანდარტებზე,გაგისწორებთ ე.წ (bug-ებს), შეგიცვლით დიზაინს, ჩავამატებთ თქვენთვის სასურველ ფუნქციონირებას",
+      ],
+      timeLine: "2 კვირია - 1 წლამდე",
+    },
+  },
+  {
+    title: "მობაილ აპლიკაცია",
+    description:
+      "თანამედროვე ტექნოლოგიებით შექმნილი, დახვეწილი მობილური აპლიკაცია, რომელიც განთავსდება google და Apple market-ზე",
+    icon: PhoneIcon,
+    link: "mobile-app",
+    metaData: {
+      priceRange: ["5000", "60.000"],
+      titleOne: [
+        "მობილური აპლიკაცის დეველოპმენტის სერვისი",
+        "დაგიწერთ ნებისმიერი სირთულის მობაილ აპლიკაციას iOS და Android-პლატფორმაზე.",
+      ],
+
+      timeLine: "2 კვირია - 1 წლამდე",
+    },
+  },
+];

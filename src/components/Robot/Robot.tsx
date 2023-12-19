@@ -77,6 +77,7 @@ function Robot() {
       //   className={style.section}
       drag={true}
       dragConstraints={dragConstraints}
+      initial={{ y: 140 }}
       dragElastic={true}
       dragMomentum={true}
       transition={{ duration: 0.6, type: "spring" }}
@@ -100,6 +101,7 @@ function Robot() {
           src={Loca}
         />
       </div>
+
       <Lottie
         onDoubleClick={handleNav}
         options={defaultOptions}
