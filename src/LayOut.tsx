@@ -4,6 +4,7 @@ import Particals from "./components/Particals";
 import Home from "./components/Home/Home";
 import Robot from "./components/Robot/Robot";
 import Services from "./components/Services/Services";
+import Team from "./components/Team/Team";
 function LayOut() {
   const style = { main: `w-[100vw] h-[100%] relative bg-[#171312]` };
   return (
@@ -13,6 +14,7 @@ function LayOut() {
       <Robot />
       <Home />
       <Services />
+      <Team />
     </main>
   );
 }

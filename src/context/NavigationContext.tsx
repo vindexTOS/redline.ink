@@ -1,8 +1,9 @@
 import { createContext, useContext, useReducer, useRef } from "react";
 
 type Cell = {
-    mainRef: any 
-    serviceRef: any 
+  mainRef: any;
+  serviceRef: any;
+  teamRef: any;
 };
 
 const NavigationContext = createContext<Cell | null>(null);
@@ -14,9 +15,10 @@ export const NavigationContextProvider = ({
 }) => {
   const mainRef = useRef(null);
   const serviceRef = useRef(null);
+  const teamRef = useRef(null);
 
   return (
-    <NavigationContext.Provider value={{  mainRef, serviceRef} }>
+    <NavigationContext.Provider value={{ mainRef, serviceRef, teamRef }}>
       {children}
     </NavigationContext.Provider>
   );

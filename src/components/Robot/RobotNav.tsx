@@ -10,7 +10,7 @@ import { UseNavigationContext } from "../../context/NavigationContext";
 
 function RobotNav() {
   const { robotState, RobotDispatch } = UseRobotContext();
-  const { serviceRef, mainRef } = UseNavigationContext();
+  const { serviceRef, mainRef, teamRef } = UseNavigationContext();
   const style = {
     a: ` flex items-center gap-2 hover:text-yellow-200 cursor-pointer`,
   };
@@ -41,7 +41,7 @@ function RobotNav() {
           <a onClick={() => scrollToSection(serviceRef)} className={style.a}>
             <GrServices /> სერვისები
           </a>
-          <a className={style.a}>
+          <a onClick={() => scrollToSection(teamRef)} className={style.a}>
             <RiTeamLine /> გუნდი
           </a>
           <a className={style.a}>
