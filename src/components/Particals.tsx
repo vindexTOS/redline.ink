@@ -28,7 +28,7 @@ const Particals = () => {
         interactivity: {
           events: {
             onClick: {
-              enable: true,     
+              enable: true,
               mode: "push",
             },
             onHover: {
@@ -38,7 +38,7 @@ const Particals = () => {
           },
           modes: {
             push: {
-              quantity: 4,
+              quantity: 1,
             },
             repulse: {
               distance: 100,

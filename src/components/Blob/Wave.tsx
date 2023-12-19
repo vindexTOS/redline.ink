@@ -2,7 +2,7 @@ import "./blob.scss";
 const Wave = () => {
   return (
     <>
-      <div className="container absolute ">
+      <div className="container absolute  ">
         <div className="shape"></div>
       </div>
     </>
