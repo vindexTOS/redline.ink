@@ -14,7 +14,7 @@ const ServicesCard: FC<CardPropTypes> = ({
   link,
 }) => {
   return (
-    <div className="z-50 boxShaddow  p-3 flex flex-col items-center justify-around w-[400px] h-[500px] bg-black/40 rounded-lg">
+    <div className="  boxShaddow  p-3 flex flex-col items-center justify-around w-[400px] h-[500px] bg-black/40 rounded-lg">
       <img src={icon} className=" w-[220px] mb-4 mx-auto" alt="Icon" />
 
       <div className="flex  flex-col    justify-around gap-3">

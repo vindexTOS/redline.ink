@@ -5,13 +5,17 @@ import ServicesCard from "./ServicesCard";
 import ServerIcon from "../../assets/icons/server.png";
 import PhoneIcon from "../../assets/icons/smartphone.png";
 import WebIcon from "../../assets/icons/web.png";
+import { UseNavigationContext } from "../../context/NavigationContext";
 export default function Services() {
+  const { serviceRef } = UseNavigationContext();
   const itemVariants = {
     hidden: { opacity: 0, x: "-100%" },
     visible: { opacity: 1, x: 0 },
   };
   return (
     <div className="h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-center gap-4 ">
+      <span ref={serviceRef}></span>
+
       <m.div
         variants={itemVariants}
         className="w-[90%]   gap-5 flex flex-col items-center bg-gray-600/20 rounded-[8px] boxShaddow justify-around py-40 h-[100%]  "

@@ -6,13 +6,24 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { MdAlternateEmail } from "react-icons/md";
 import { MdCancel } from "react-icons/md";
 import { UseRobotContext } from "../../context/RobotContext";
+import { UseNavigationContext } from "../../context/NavigationContext";
 
 function RobotNav() {
   const { robotState, RobotDispatch } = UseRobotContext();
+  const { serviceRef, mainRef } = UseNavigationContext();
   const style = {
     a: ` flex items-center gap-2 hover:text-yellow-200 cursor-pointer`,
   };
-
+  const scrollToSection = (ref: any) => {
+    setTimeout(() => {
+      if (ref && ref.current) {
+        ref.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 500);
+  };
   return (
     <div
       className={`text-white flex relative z-50 ${
@@ -24,10 +35,10 @@ function RobotNav() {
           <span className="text-yellow-500">$ </span>გვერდებზე ნავიგაცია
         </h1>
         <div className="flex  flex-col  text-yellow-500 text-start p-3 gap-1">
-          <a className={style.a}>
+          <a onClick={() => scrollToSection(mainRef)} className={style.a}>
             <CiHome /> მთავარი
           </a>
-          <a className={style.a}>
+          <a onClick={() => scrollToSection(serviceRef)} className={style.a}>
             <GrServices /> სერვისები
           </a>
           <a className={style.a}>

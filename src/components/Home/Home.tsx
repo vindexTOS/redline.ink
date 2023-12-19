@@ -2,8 +2,10 @@ import React from "react";
 import Lottie from "react-lottie";
 import { motion as m } from "framer-motion";
 import Wave from "../Blob/Wave";
+import { UseNavigationContext } from "../../context/NavigationContext";
 
 function Home() {
+  const { mainRef } = UseNavigationContext();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 1 } },
@@ -15,7 +17,10 @@ function Home() {
   };
 
   return (
-    <div className=" h-[700px] w-[100%] flex items-center justify-center py-10  ">
+    <div
+      ref={mainRef}
+      className=" h-[700px] w-[100%] flex items-center justify-center py-10  "
+    >
       <m.section
         variants={containerVariants}
         initial="hidden"
