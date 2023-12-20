@@ -1,6 +1,6 @@
-import React, { useReducer, useRef, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import Lottie from 'react-lottie'
-import { motion as m } from 'framer-motion'
+import { motion as m, useAnimation } from 'framer-motion'
 import animationData from '../../assets/animations/Robot.json'
 import Terminal from './Terminal'
 import Prompts from './Prompts'
@@ -70,30 +70,79 @@ function Robot() {
 
   const audioRef = useRef(null)
 
-  const toggleAudio = () => {
-    const audio: any = audioRef.current
-    if (audio) {
-      if (stopStart) {
-        audio.pause()
-      } else {
-        audio.play()
-      }
-    }
-
-    setStopStart((prevIsPlaying) => !prevIsPlaying)
-  }
   // robbot buttons
   const handleNav = () => {
     RobotDispatch({ type: 'ROBOT_SWTICH', payload: 'NAV' })
     RobotDispatch({ type: 'CLOSE_NAV', payload: '' })
     RobotDispatch({ type: 'CLOSE_TERMINAL', payload: false })
   }
-  const handleStartRobot = () => {
-    setStopStart(!stopStart)
+  // robot moivng randomliy
+
+  const [robotPosition, setRobotPosition] = useState({
+    x: screenSize.width - 2000,
+    y: screenSize.height - 800,
+  })
+
+  const directions = [
+    { x: 1, y: 1 },
+    { x: -1, y: 1 },
+    { x: 1, y: -1 },
+    { x: -1, y: -1 },
+  ]
+
+  let currentDirectionIndex = Math.floor(Math.random() * directions.length)
+
+  const moveRobot = () => {
+    const direction = directions[currentDirectionIndex]
+    let newX = robotPosition.x + direction.x * (screenSize.width - 100)
+    let newY = robotPosition.y + direction.y * (screenSize.height - 133)
+
+    // Check and adjust direction when hitting any boundary
+    if (newX <= 0 || newX >= screenSize.width - 100) {
+      direction.x *= -1 // Reverse the x direction
+      currentDirectionIndex = (currentDirectionIndex + 1) % directions.length
+    }
+    if (newY <= 0 || newY >= screenSize.height - 133) {
+      direction.y *= -1 // Reverse the y direction
+      currentDirectionIndex = (currentDirectionIndex + 1) % directions.length
+    }
+
+    setRobotPosition({ x: newX, y: newY })
+    console.log(`X: ${newX}, Y: ${newY}, Direction: ${currentDirectionIndex}`)
   }
 
+  const controls = useAnimation()
+
+  //   useEffect(() => {
+  //     let timer: any
+
+  //     if (!stopStart) {
+  //       timer = setInterval(() => {
+  //         moveRobot()
+  //       }, 2000)
+
+  //       return () => {
+  //         clearInterval(timer) // Clear the timer when component unmounts or stopStart becomes true
+  //       }
+  //     }
+  //   }, [stopStart])
+
+  const toggleAudio = () => {
+    const audio: any = audioRef.current
+    if (audio) {
+      if (stopStart) {
+        audio.pause()
+        controls.stop()
+      } else {
+        audio.play()
+        // moveRobot()
+      }
+    }
+    setStopStart((prevIsPlaying) => !prevIsPlaying)
+  }
   return (
     <m.div
+      animate={{ x: robotPosition.x, y: robotPosition.y }}
       style={{ top: scrollY }}
       drag={true}
       dragConstraints={dragConstraints}
