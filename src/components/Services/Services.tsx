@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './Services.scss';
-import { motion as m } from 'framer-motion';
+import { motion as m, useAnimation } from 'framer-motion';
 import ServicesCard from './ServicesCard';
 import ServerIcon from '../../assets/icons/server.png';
 import PhoneIcon from '../../assets/icons/smartphone.png';
 import WebIcon from '../../assets/icons/web.png';
 import { UseNavigationContext } from '../../context/NavigationContext';
 import { fetchData } from '../../firebase/firebase';
+import { useInView } from 'react-intersection-observer';
+import SingleService from './SingleService';
 export type ServicesType = {
 	title: string;
 	titleOne: string;
 	titleTwo: string;
 	decOne: string;
 	decTwo: string;
-	priceRange: string;
+	priceRange: string[];
 	icon: string;
 	description: string;
 	id: string;
@@ -22,13 +24,20 @@ export type ServicesType = {
 
 export default function Services() {
 	const { serviceRef } = UseNavigationContext();
-	const [ServicesData, setServicesData] = useState<ServicesType[]>();
+	const [ServicesData, setServicesData] = useState<ServicesType[]>([]);
 	const itemVariants = {
 		hidden: { opacity: 0, x: '-100%' },
 		visible: { opacity: 1, x: 0 },
 	};
 	const [loading, setLoading] = useState(false);
+	const controls = useAnimation();
 
+	const [ref, inView] = useInView({ triggerOnce: true });
+	useEffect(() => {
+		if (inView) {
+			controls.start({ opacity: 1, y: 0 });
+		}
+	}, [controls, inView]);
 	useEffect(() => {
 		const getData = async () => {
 			try {
@@ -43,16 +52,24 @@ export default function Services() {
 		};
 		getData();
 	}, []);
-
-	if (loading) {
+	const [openSingleService, setOpenSingleService] = useState('');
+	if (loading && !ServicesData) {
 		return <div>Loading...</div>;
 	}
 	return (
 		<div className="h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-center gap-4 ">
 			<span ref={serviceRef}></span>
-
+			{openSingleService && (
+				<SingleService
+					setOpenSingleService={setOpenSingleService}
+					data={ServicesData}
+					serviceID={openSingleService}
+				/>
+			)}
 			<m.div
-				variants={itemVariants}
+				ref={ref}
+				initial={{ opacity: 0, y: 100 }}
+				animate={controls}
 				className="w-[90%]   gap-5 flex flex-col items-center bg-gray-600/20 rounded-[8px] boxShaddow justify-around py-40 h-[100%]  "
 			>
 				<h1 className="font-geo text-[3rem] text-white textshadow z-50 ">ჩვენი მომსახურეობა</h1>
@@ -72,7 +89,7 @@ export default function Services() {
 						სერვისები
 					</h1>
 					<div className="z-50 flex items-center justify-center gap-10 w-[100%] flex-wrap ">
-						<ServicesCard
+						{/* <ServicesCard
 							title="ვებ აპლიკაცია"
 							description="ნებიესმიერი სირთულის საიტის, დამზადებული თქვენზე მორგებული ტექნოლოგით, და განთავსება ინტერნეტ სივრცეში"
 							link=""
@@ -89,7 +106,17 @@ export default function Services() {
 							description="სხვადასხვა ტიპის სერვერების მართვა, დაკავშირება და მანიპულაცია მონაცემთა ბაზებით, მათი განთავსება Rest API ის მეშვეობით."
 							link=""
 							icon={ServerIcon}
-						/>
+						/> */}
+						{ServicesData?.map((val: ServicesType) => (
+							<ServicesCard
+								setOpenSingleService={setOpenSingleService}
+								title={val.title}
+								description={val.description}
+								link={val.id}
+								icon={val.icon}
+								key={val.id}
+							/>
+						))}
 					</div>
 				</div>
 			</m.div>
