@@ -101,7 +101,8 @@ export const RobotContextProvider = ({ children }: { children: React.ReactNode }
 				changeText(RobotPromps.project);
 				break;
 			case 'contact':
-				changeText();
+				changeText(RobotPromps.contact);
+				break;
 			default:
 				changeText(RobotPromps.hello);
 				break;
