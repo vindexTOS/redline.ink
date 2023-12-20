@@ -28,10 +28,34 @@ const SingleService: FC<ServiceProptype> = ({ data, serviceID, setOpenSingleServ
 			>
 				<h1 className="text-2xl font-bold mb-2 text-white">{title}</h1>
 
-				<div className="flex items-start gap-2 flex-col space-x-4 mb-4">
-					<img src={icon} alt={title} className="w-[200px] h-[200px]" />
-					<span className="text-gray-400">შესრულების ვადა: {timeLine}</span>
+				<div className="flex justify-between">
+					<div className="flex items-start gap-2 flex-col space-x-4 mb-4">
+						<img src={icon} alt={title} className="w-[200px] h-[200px]" />
+						<span className="text-gray-400">შესრულების ვადა: {timeLine}</span>
+					</div>
+					<div className="flex  flex-col items-center  gap-5">
+						<h1 className="text-white text-[1.2rem]">დაგვიკავშირდით</h1>
+						<div className="flex  text-[1.2rem] items-center  ">
+							<FaEnvelope className="text-gray-600 mr-2" />
+							<a href="mailto:info@redline.ink" className="text-blue-500 hover:underline">
+								info@redline.ink
+							</a>
+						</div>
+
+						<div className="flex  text-[1.2rem] items-center  ">
+							<FaFacebook className="text-blue-700 mr-2" />
+							<a
+								href="https://www.facebook.com/profile.php?id=61553239725559"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-blue-500 hover:underline"
+							>
+								Redline - რედლაინი
+							</a>
+						</div>
+					</div>
 				</div>
+
 				<p className="text-gray-400 text-[1.2rem]">{description}</p>
 
 				<div className="mb-4">
@@ -53,26 +77,6 @@ const SingleService: FC<ServiceProptype> = ({ data, serviceID, setOpenSingleServ
 							))}
 						</span>
 					</p>
-				</div>
-				<div className="flex   items-center justify-around">
-					<div className="flex  text-[2rem] items-center  ">
-						<FaEnvelope className="text-gray-600 mr-2" />
-						<a href="mailto:info@redline.ink" className="text-blue-500 hover:underline">
-							info@redline.ink
-						</a>
-					</div>
-
-					<div className="flex  text-[2rem] items-center  ">
-						<FaFacebook className="text-blue-700 mr-2" />
-						<a
-							href="https://www.facebook.com/profile.php?id=61553239725559"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-blue-500 hover:underline"
-						>
-							Redline - რედლაინი
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
