@@ -72,7 +72,7 @@ const SingleService: FC<ServiceProptype> = ({ data, serviceID, setOpenSingleServ
 						<span className="flex gap-2">
 							{priceRange.map((val: string, index: number) => (
 								<p>
-									${val} {index >= 0 && index < 1 && '-'}
+									₾{val} {index >= 0 && index < 1 && '-'}
 								</p>
 							))}
 						</span>
