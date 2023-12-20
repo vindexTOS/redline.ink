@@ -32,7 +32,7 @@ export default function Contact() {
 							rel="noopener noreferrer"
 							className="text-blue-500 hover:underline"
 						>
-							Facebook
+							Redline - რედლაინი
 						</a>
 					</div>
 				</div>

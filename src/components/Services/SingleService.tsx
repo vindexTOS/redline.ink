@@ -24,7 +24,7 @@ const SingleService: FC<ServiceProptype> = ({ data, serviceID, setOpenSingleServ
 		<div className="backdrop-blur-sm	w-[100%] bg-gray-300/20 w-full h-full flex items-center justify-center fixed top-0 left-0 right-0 bottom-0 z-50">
 			<div
 				ref={ref}
-				className=" px-40 py-20  flex flex-col gap-10  rounded-md   bg-black/80 boxShaddow w-[70%]  h-[90%]"
+				className=" px-40 py-5  flex flex-col gap-10  rounded-md   bg-black/80 boxShaddow w-[70%]  h-[90%]"
 			>
 				<h1 className="text-2xl font-bold mb-2 text-white">{title}</h1>
 
@@ -46,8 +46,10 @@ const SingleService: FC<ServiceProptype> = ({ data, serviceID, setOpenSingleServ
 					<p className="  flex gap-2 text-green-300">
 						Price Range:{' '}
 						<span className="flex gap-2">
-							{priceRange.map((val: string) => (
-								<p>{val}</p>
+							{priceRange.map((val: string, index: number) => (
+								<p>
+									${val} {index >= 0 && index < 1 && '-'}
+								</p>
 							))}
 						</span>
 					</p>
