@@ -4,18 +4,8 @@ import { Home, Users, Folder, Activity, AtSign, Cpu } from 'react-feather';
 import { UseNavigationContext } from '../../context/NavigationContext';
 
 function NavBar() {
-	const { serviceRef, mainRef, teamRef, projectRef, contactRef } = UseNavigationContext();
+	const { serviceRef, mainRef, teamRef, projectRef, contactRef, scrollToSection } = UseNavigationContext();
 
-	const scrollToSection = (ref: any) => {
-		setTimeout(() => {
-			if (ref && ref.current) {
-				ref.current.scrollIntoView({
-					behavior: 'smooth',
-					block: 'start',
-				});
-			}
-		}, 500);
-	};
 	return (
 		<div className="header z-50">
 			<div className="header__logo flex items-center  justify-center gap-2 ">
@@ -25,31 +15,31 @@ function NavBar() {
 			<nav className="navbar">
 				<ul className="navbar__menu">
 					<li className="navbar__item cursor-pointer">
-						<a onClick={() => scrollToSection(mainRef)} className="navbar__link">
+						<a onClick={() => scrollToSection(mainRef, 'main')} className="navbar__link">
 							<Home />
 							<span>Home</span>{' '}
 						</a>
 					</li>
 					<li className="navbar__item cursor-pointer">
-						<a onClick={() => scrollToSection(serviceRef)} className="navbar__link">
+						<a onClick={() => scrollToSection(serviceRef, 'service')} className="navbar__link">
 							<Activity />
 							<span>Services</span>{' '}
 						</a>
 					</li>
 					<li className="navbar__item cursor-pointer">
-						<a onClick={() => scrollToSection(teamRef)} className="navbar__link">
+						<a onClick={() => scrollToSection(teamRef, 'team')} className="navbar__link">
 							<Users />
 							<span>Team</span>{' '}
 						</a>
 					</li>
 					<li className="navbar__item cursor-pointer">
-						<a onClick={() => scrollToSection(projectRef)} className="navbar__link">
+						<a onClick={() => scrollToSection(projectRef, 'project')} className="navbar__link">
 							<Folder />
 							<span>Projects</span>{' '}
 						</a>
 					</li>
 					<li className="navbar__item cursor-pointer">
-						<a onClick={() => scrollToSection(contactRef)} className="navbar__link">
+						<a onClick={() => scrollToSection(contactRef, 'contact')} className="navbar__link">
 							<AtSign />
 							<span>Contact</span>{' '}
 						</a>

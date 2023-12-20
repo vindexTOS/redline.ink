@@ -1,36 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { UseRobotContext } from '../../context/RobotContext';
 
 function Prompts() {
-	const [resultText, setResultText] = useState<string[]>(['$ ']);
-	const RobotPromps = {
-		hello: ' გამარჯობა, კეთილი იყოს თქვენი მობრძანება Redline Technologies'.split(' '),
-		iWilLHelP: 'დააკლიკე სტარტ ღილაკს და დაგეხმარები :)'.split(' '),
-	};
-	const changeText = (mappingText: string[]) => {
-		let index = 0;
-
-		const intervalId = setInterval(() => {
-			if (index < mappingText.length) {
-				const nextWord = mappingText[index];
-				if (nextWord !== undefined) {
-					setResultText((prevResultText: string[]) => [...prevResultText, `${nextWord} `]);
-				}
-				index++;
-			} else {
-				clearInterval(intervalId);
-			}
-		}, 500);
-	};
-
-	useEffect(() => {
-		changeText(RobotPromps.hello);
-		setTimeout(() => {
-			setResultText(['$ ']);
-			changeText(RobotPromps.iWilLHelP);
-		}, 5000);
-	}, []);
+	const { resultText } = UseRobotContext();
 	return (
-		<>
+		<div className="w-[100%] justify-start items-center flex gap-1 flex-wrap p-4 text-[14px] ">
 			{resultText.map((val: string, index: number) => (
 				<p
 					className={`${
@@ -47,7 +21,7 @@ function Prompts() {
 					{val}
 				</p>
 			))}
-		</>
+		</div>
 	);
 }
 

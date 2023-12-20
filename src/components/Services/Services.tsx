@@ -58,7 +58,7 @@ export default function Services() {
 	}
 	return (
 		<div className="h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-center gap-4 ">
-			<span ref={serviceRef}></span>
+			<span id="service_id" ref={serviceRef}></span>
 			{openSingleService && (
 				<SingleService
 					setOpenSingleService={setOpenSingleService}

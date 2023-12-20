@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useRef } from 'react';
+import { createContext, useContext, useReducer, useRef, useState } from 'react';
 
 type Cell = {
 	mainRef: any;
@@ -6,6 +6,8 @@ type Cell = {
 	teamRef: any;
 	projectRef: any;
 	contactRef: any;
+	scrollToSection: (ref: any, location: string) => void;
+	locationRef: string;
 };
 
 const NavigationContext = createContext<Cell | null>(null);
@@ -16,8 +18,23 @@ export const NavigationContextProvider = ({ children }: { children: React.ReactN
 	const teamRef = useRef(null);
 	const projectRef = useRef(null);
 	const contactRef = useRef(null);
+	const [locationRef, setLocaationRef] = useState<string>('');
+
+	const scrollToSection = (ref: any, location: string) => {
+		setTimeout(() => {
+			if (ref && ref.current) {
+				ref.current.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+				});
+				setLocaationRef(location);
+			}
+		}, 500);
+	};
 	return (
-		<NavigationContext.Provider value={{ mainRef, serviceRef, teamRef, projectRef, contactRef }}>
+		<NavigationContext.Provider
+			value={{ mainRef, serviceRef, teamRef, projectRef, contactRef, locationRef, scrollToSection }}
+		>
 			{children}
 		</NavigationContext.Provider>
 	);
