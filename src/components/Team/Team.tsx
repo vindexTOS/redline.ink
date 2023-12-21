@@ -46,26 +46,29 @@ export default function Team() {
 	}
 
 	return (
-		<div className="h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-around gap-10 ">
-			<span ref={teamRef}></span>
-			<motion.div
-				ref={ref}
-				initial={{ opacity: 0, y: 100 }}
-				animate={controls}
-				className="w-[90%]     flex flex-wrap  items-center bg-blue-800/10 rounded-[8px] boxShaddow justify-around py-20 gap-10 h-[100%] "
-			>
-				<div className="flex items-center justify-center flex-col w-[90%]">
-					<h1 className="font-geo text-[3rem] text-white textshadow z-50 ">გაიცანით ჩვენი გუნდი</h1>
-					<p className="font-geo text-[1.4rem] text-white textshadow z-50 w-[60%] text-center  ">
-						გამოცდილი და თანამედროვე ტექნოლოგიებით აღჭურვილი გუნდი რომელიც არ უშინდება არანაირ გამოწვევას.
-					</p>
-				</div>
-				<div className="flex flex-wrap justify-center gap-20 w-[100%]">
-					{TeamData?.map((val: TeamMember) => (
-						<TeamCard member={val} key={val.id} />
-					))}
-				</div>
-			</motion.div>
-		</div>
-	);
+    <div className="h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-around gap-10 ">
+      <span ref={teamRef}></span>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 100 }}
+        animate={controls}
+        className="w-[90%]     flex flex-wrap  items-center bg-blue-800/10 rounded-[8px] boxShaddow justify-around py-20 gap-10 h-[100%] "
+      >
+        <div className="flex items-center justify-center flex-col w-[90%]">
+          <h1 className="font-geo   text-[3rem] text-white textshadow z-50 ">
+            გაიცანით ჩვენი გუნდი
+          </h1>
+          <p className="font-geo text-[1.4rem] text-white textshadow z-50 w-[60%] text-center  ">
+            გამოცდილი და თანამედროვე ტექნოლოგიებით აღჭურვილი გუნდი რომელიც არ
+            უშინდება არანაირ გამოწვევას.
+          </p>
+        </div>
+        <div className="flex flex-wrap justify-center gap-20 w-[100%]">
+          {TeamData?.map((val: TeamMember) => (
+            <TeamCard member={val} key={val.id} />
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
 }
