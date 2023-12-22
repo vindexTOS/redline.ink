@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Georgian-1";
-  src: url("./assets/fonts/bpg_glaho_sylfaen.ttf");
+  font-family: 'Georgian-1';
+  src: url('./assets/fonts/bpg_glaho_sylfaen.ttf');
 }
 
 .font-geo {
-  font-family: "Georgian-1";
+  font-family: 'Georgian-1';
 }
 @media (max-width: 600px) {
   .smallText {
