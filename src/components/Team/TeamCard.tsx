@@ -1,16 +1,22 @@
-import React, {FC} from 'react'
-import "../Services/Services.scss"
-import { TeamMember } from './Team'
+import React, { FC } from "react";
+import "../Services/Services.scss";
+import { TeamMember } from "./Team";
 type TeamCardProps = {
-   member:TeamMember
-}
+  member: TeamMember;
+};
 
-const TeamCard:FC<TeamCardProps> = ({member})=> {
+const TeamCard: FC<TeamCardProps> = ({ member }) => {
   return (
- <div className=" h-[750px]  min-w-[300px] max-w-[450px] boxShaddow  rounded-[20px] overflow-hidden  z-50 bg-gray-900/40 p-2  ">
-      <img className="w-full h-[400px] rounded-[50%] object-cover  boxShaddow " src={member.photo} alt={member.name} />
+    <div className=" h-[750px]  min-w-[300px] max-w-[450px] boxShaddow  rounded-[20px] overflow-hidden  z-50 bg-gray-900/40 p-2  ">
+      <img
+        className="w-full h-[400px] max_sm:h-[300px] rounded-[50%] object-cover  boxShaddow "
+        src={member.photo}
+        alt={member.name}
+      />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2 text-gray-200">{member.name}</div>
+        <div className="font-bold text-xl mb-2 text-gray-200">
+          {member.name}
+        </div>
         <p className="text-gray-400 text-base">{member.title}</p>
         <p className="text-gray-400 text-sm">{member.subTitle}</p>
       </div>
@@ -33,8 +39,7 @@ const TeamCard:FC<TeamCardProps> = ({member})=> {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-export default TeamCard
+export default TeamCard;

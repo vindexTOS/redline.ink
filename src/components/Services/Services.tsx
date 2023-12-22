@@ -75,7 +75,7 @@ export default function Services() {
         <h1 className="font-geo text-[3rem] max_smm:text-[1.4rem] text-white textshadow z-50 ">
           ჩვენი მომსახურეობა
         </h1>
-        <p className="font-geo text-[1rem]   max_smm:text-[14px] text-white textshadow z-50 w-[60%] text-center  ">
+        <p className="font-geo text-[1rem]  max_smm:w-[95%]   max_smm:text-[14px] text-white textshadow z-50 w-[60%] text-center  ">
           ჩვენი სერვისები ითვალისწინებს მრავალფეროვან ასორტიმენტს, ეს იქნება
           მარტივი სტატიკური landing page ვებ საიტი თუ მობაილ აპლიკაცია, და
           ყველაფერი რაც მათ შორის არსებობს, ახალი პროექტის აწყობა ნულიდან თუ

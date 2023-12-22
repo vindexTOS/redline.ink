@@ -46,24 +46,24 @@ export default function Projects() {
 	}
 
 	return (
-		<div className="h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-around gap-10 ">
-			<span ref={projectRef}></span>
-			<motion.div
-				ref={ref}
-				initial={{ opacity: 0, y: 100 }}
-				animate={controls}
-				className="w-[90%]     flex flex-wrap  items-center bg-purple-800/10 rounded-[12px]   boxShaddow justify-around py-20 gap-10 h-[100%] "
-			>
-				<motion.h1 className="font-geo text-[3rem] text-white text-center textshadow z-50 w-[100%] ">
-					შესრულებული პროექტები
-				</motion.h1>
+    <div className="h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-around gap-10 ">
+      <span ref={projectRef}></span>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 100 }}
+        animate={controls}
+        className="w-[90%]     flex flex-wrap  items-center bg-purple-800/10 rounded-[12px]   boxShaddow justify-around py-20 gap-10 h-[100%] "
+      >
+        <motion.h1 className="font-geo smallText  text-[3rem] text-white text-center textshadow z-50 w-[100%] ">
+          შესრულებული პროექტები
+        </motion.h1>
 
-				<motion.div className="flex flex-wrap justify-center gap-20 w-[100%]">
-					{ProjectData?.map((val: ProjectsType) => (
-						<ProjectsCard project={val} key={val.id} />
-					))}
-				</motion.div>
-			</motion.div>
-		</div>
-	);
+        <motion.div className="flex flex-wrap justify-center gap-20 w-[100%]">
+          {ProjectData?.map((val: ProjectsType) => (
+            <ProjectsCard project={val} key={val.id} />
+          ))}
+        </motion.div>
+      </motion.div>
+    </div>
+  );
 }

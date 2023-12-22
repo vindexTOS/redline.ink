@@ -15,7 +15,7 @@ function Terminal({ children }: { children: React.ReactNode }) {
       }}
       className={` ${
         robotState.closeTerminal && "hidden"
-      } w-[220px] flex flex-wrap items-center gap-1 z-20 top-1 p-2 rounded-[12px] left-80 font-bold text-center text-[1.1rem]   absolute bg-black/90 `}
+      } w-[220px] flex flex-wrap items-center max_sm:left-20 max_sm:bottom- gap-1 z-20 top-1 p-2 rounded-[12px] left-80 font-bold text-center text-[1.1rem]   absolute bg-black/90 `}
     >
       {children}
     </m.h1>
