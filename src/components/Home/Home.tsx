@@ -19,20 +19,20 @@ function Home() {
   return (
     <div
       ref={mainRef}
-      className=" max_md:hidden h-[700px] w-[100%] flex items-center justify-center py-10  "
+      className=" h-[100%] py-40 w-[100%] flex flex-col items-center  flex items-center justify-center gap-4  "
     >
       <m.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="  flex items-center justify-around h-[100%]  w-[80%] rounded-[20px]"
+        className=" w-[90%]   gap-5 flex flex-col items-center bg-blue-800/10 rounded-[8px] boxShaddow justify-around  max_smm:py-10 py-40 h-[100%]"
       >
         <m.div
           variants={itemVariants}
           className="w-[100%] flex flex-col items-center justify-around py-40 h-[100%]  "
         >
-          <Wave />
-          <p className="text-red-600 font-bold font-mono text-[3rem] max_md:text-[1rem] w-[85%] text-center  animate-pulse	 ">
+          {/* <Wave /> */}
+          <p className="text-red-600 font-bold font-mono text-[3rem] max_md:text-[1rem] w-[85%] text-center  	 ">
             „Choosing technologies isn't about personal preference; it's about
             empowering our clients with the best solutions tailored to their
             needs.„
